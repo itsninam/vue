@@ -1,4 +1,5 @@
 <template>
+  <div></div>
   <form action="" @submit="onSubmit">
     <div>
       <label for="task">Enter task</label>
