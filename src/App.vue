@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Tasks :tasks="tasks" />
+    <Tasks :tasks="tasks" @delete-task="deleteTask" />
   </header>
 </template>
 
@@ -11,6 +11,12 @@ export default {
   name: "App",
   components: {
     Tasks,
+  },
+  //remove each task on click
+  methods: {
+    deleteTask(id) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
+    },
   },
   data() {
     return {
@@ -36,7 +42,7 @@ export default {
         reminder: true,
       },
       {
-        id: 1,
+        id: 3,
         task: "Pay Bills",
         date: "July 20, 2022",
         reminder: false,
