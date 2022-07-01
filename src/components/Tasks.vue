@@ -1,5 +1,4 @@
 <template>
-  <h1>Task Tracker</h1>
   <!-- loop over tasks array and display items on page -->
   <ul v-for="task in tasks">
     <li>
@@ -16,7 +15,7 @@ export default {
   props: {
     tasks: Array,
   },
-  emits: ["delete-task"],
+  emits: ["delete-task", "submit-task"],
   methods: {
     deleteTask(id) {
       //emit function to app.vue
@@ -27,10 +26,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  text-align: center;
-}
-
 li {
   list-style: none;
   border: 1px solid lightsalmon;

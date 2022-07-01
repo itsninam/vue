@@ -1,21 +1,28 @@
 <template>
+  <h1>Task Tracker</h1>
   <div class="wrapper">
+    <UserInput @submit-task="addTask" />
     <Tasks :tasks="tasks" @delete-task="deleteTask" />
   </div>
 </template>
 
 <script>
 import Tasks from "./components/Tasks.vue";
+import UserInput from "./components/UserInput.vue";
 
 export default {
   name: "App",
   components: {
     Tasks,
+    UserInput,
   },
   //remove each task on click
   methods: {
     deleteTask(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id);
+    },
+    addTask(newTask) {
+      this.tasks = [...this.tasks, newTask];
     },
   },
   data() {
@@ -32,19 +39,19 @@ export default {
       {
         id: 1,
         task: "Grocery Shopping",
-        date: "July 5, 2022",
+        date: "2022-06-10",
         reminder: true,
       },
       {
         id: 2,
         task: "Doctor's Appointment",
-        date: "July 10, 2022",
+        date: "2022-06-25",
         reminder: true,
       },
       {
         id: 3,
         task: "Pay Bills",
-        date: "July 20, 2022",
+        date: "2022-06-20",
         reminder: false,
       },
     ];
@@ -53,9 +60,24 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 .wrapper {
   max-width: 1200px;
   width: 85%;
   margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+input {
+  text-transform: capitalize;
 }
 </style>
