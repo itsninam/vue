@@ -2,10 +2,10 @@
   <h1>Task Tracker</h1>
   <!-- loop over tasks array and display items on page -->
   <ul v-for="task in tasks">
-    <li @click="deleteTask(task.id)">
+    <li>
       <p>{{ task.task }}</p>
       <p>{{ task.date }}</p>
-      <span>ⓧ</span>
+      <span @click="deleteTask(task.id)">ⓧ</span>
     </li>
   </ul>
 </template>
@@ -26,4 +26,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  border: 1px solid lightsalmon;
+  width: 25%;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+}
+
+span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: lightsalmon;
+  font-weight: bolder;
+}
+</style>

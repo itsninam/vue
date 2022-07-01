@@ -1,7 +1,7 @@
 <template>
-  <header>
+  <div class="wrapper">
     <Tasks :tasks="tasks" @delete-task="deleteTask" />
-  </header>
+  </div>
 </template>
 
 <script>
@@ -52,4 +52,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.wrapper {
+  max-width: 1200px;
+  width: 85%;
+  margin: 0 auto;
+}
+</style>
